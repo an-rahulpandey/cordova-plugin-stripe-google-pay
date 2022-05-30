@@ -87,12 +87,12 @@ public class StripeGooglePay extends CordovaPlugin {
             String rawToken = paymentData.getPaymentMethodToken().getToken();
 
             // Now that you have a Stripe token object, charge that by using the id
-            Token stripeToken = Token.fromString(rawToken);
-            if (stripeToken != null) {
+            // Token stripeToken = Token.fromString(rawToken);
+            if (rawToken != null) {
               // This chargeToken function is a call to your own server, which should then connect
               // to Stripe's API to finish the charge.
               //chargeToken(stripeToken.getId());
-              this.callback.success(stripeToken.getId());
+              this.callback.success(rawToken);
             } else {
               this.callback.error("An error occurred");
             }
